@@ -1,0 +1,158 @@
+ .layout-container {
+    display: flex;
+    height: 100vh;
+    transition: width 0.3s ease-in-out;
+}
+
+.side-nav {
+  width: 250px;
+  height: 100%;
+  background-color: #022f46;
+  padding: 20px;
+  text-align: center;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  left: 0;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+  transition: width 0.3s ease-in-out;
+}
+
+.user-data {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.user-img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+}
+
+.user-name {
+  color: #fff;
+  font-size: 20px;
+  width: 100px;
+  font-weight: bold;
+  text-align: left;
+}
+
+.side-nav nav ul {
+    list-style: none;
+    font-weight: 500;
+    font-size: 1.0em;
+    padding-bottom: 20px;
+}
+
+.side-nav nav ul li {
+    padding: 15px 0;
+  }
+
+.side-nav nav ul li {
+  margin-right: 10px;
+}
+
+.nav-link {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  height: 25px;
+  width: 250px;
+  color: #fff;
+  text-decoration: none;
+  padding: 20px 0;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.nav-link:hover, 
+.nav-link.active {
+  background-color: rgba(255, 255, 255, 0.2); 
+  color: orange; 
+}
+
+  .nav-icon {
+    height: 20px;
+    width: 20px;
+    color: #fff;
+  }
+
+  .nav-link:hover .nav-icon {
+    color: orange;
+  }
+
+  .sidenav-icon {
+    width: 100px;
+    height: 30px;
+  }
+
+  .sidenav-name {
+    font-size: 1.0em;
+    font-weight: 700;
+  }
+
+.side-nav .logo {
+  position: fixed;
+    display: flex;
+    flex-direction: row;
+    font-size: 1.0em;
+    left: 100px;
+    transform: translateX(-50%);
+    bottom: 20px;
+}
+
+.logo h1 {
+    color: #fff;
+}
+.logo .h1-section1 {
+    color: orange
+}
+
+@media (max-width: 768px) {
+    .side-nav {
+        width: 70px;
+        padding: 10px;
+        text-align: center;
+    }
+
+    .user-data {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .user-name {
+        display: none;
+    }
+
+    .nav-link {
+        justify-content: center;
+        padding: 10px;
+        width: 100%;
+    }
+
+    .sidenav-name {
+        display: none;
+    }
+
+    .sidenav-icon {
+        width: auto;
+        height: auto;
+    }
+
+    .nav-icon {
+        font-size: 22px;
+        width: 30px;
+        height: 30px;
+    }
+
+    .logo {
+        flex-direction: column;
+        padding-top: 50px;
+    }
+}

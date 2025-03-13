@@ -9,6 +9,7 @@ import s2icon4 from "../img/s2-icon4.png";
 import s2icon5 from "../img/s2-icon5.png";
 import s2icon6 from "../img/s2-icon6.png";
 import quotes from "../img/quotes.png";
+import { useNavigate } from "react-router-dom";
 
 const feedbacks = [
     { rating: 4.5, text: "Great service and fast response!", author: "John Peterson" },
@@ -79,6 +80,8 @@ const FeedbackCarousel = () => {
 };
 
 const Home = () => {
+    const navigate = useNavigate();
+
     return (
         <div className="home-container">
             <section className="section1">
@@ -86,7 +89,7 @@ const Home = () => {
                     <div className="logo">
                         <h1>Rateintel</h1><h1 className="h1-section1">.</h1>
                     </div>
-                    <button className="login">Login</button>
+                    <button className="login" onClick={ () => navigate("/login")} >Login</button>
                 </div>
                 <div className="section1-body">
                     <p>Turning Feedback into Opportunities for Growth.</p>
