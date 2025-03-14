@@ -1,6 +1,7 @@
 import React from "react";
 import { VictoryBar, VictoryChart, VictoryAxis, VictoryTheme, VictoryArea, VictoryStack } from "victory";
 import { ComposableMap, Geographies, Geography } from "react-simple-maps";
+import { FaArrowUp, FaArrowDown } from "react-icons/fa"
 import "../styles/Dashboard.css"; // Import the custom CSS file
 
 const Dashboard = () => {
@@ -12,6 +13,19 @@ const Dashboard = () => {
     { month: "May", consistent: 45, moderate: 20, outliers: 5 },
     { month: "Jun", consistent: 55, moderate: 25, outliers: 10 }
   ];
+
+  // Get last two months' data
+  const lastMonth = monthlyRatingsData[monthlyRatingsData.length - 2]; // May
+  const currentMonth = monthlyRatingsData[monthlyRatingsData.length - 1]; // Jun
+  const lastMonthTotal = lastMonth.consistent + lastMonth.moderate + lastMonth.outliers;
+  const currentMonthTotal = currentMonth.consistent + currentMonth.moderate + currentMonth.outliers;
+  const percentageChange1 = ((currentMonthTotal - lastMonthTotal) / lastMonthTotal) * 100;
+  const isIncrease = percentageChange1 > 0;
+
+  const anomaliesData = [10, 15, 20, 30, 20, 25]; // Monthly anomaly ratings
+  const currentAnomalies = anomaliesData[anomaliesData.length - 1]; // Latest value
+  const previousAnomalies = anomaliesData[anomaliesData.length - 2]; // Previous month value
+  const percentageChange = ((currentAnomalies - previousAnomalies) / previousAnomalies) * 100;
 
   const areaData = [
     { month: "Jan", ratings: 50, anomalies: 10 },
@@ -59,8 +73,24 @@ const Dashboard = () => {
             </div>
           </div>
           <div className="rating-percent">
-              <div className="positive-rating"></div>
-              <div className="anomalies-rating"></div>
+              <div className="positive-rating">
+                <h1>{currentMonthTotal}%</h1>
+                <p>Positive Rating</p>
+                <div className="rt1">
+                  <div className="rt-cont" style={{ color: isIncrease ? "green" : "red" }}>
+                {isIncrease ? <FaArrowUp /> : <FaArrowDown />}{Math.abs(percentageChange1).toFixed(2)}%</div>
+                  <p>Since last months</p>
+                </div>
+              </div>
+              <div className="anomalies-rating">
+                <h1>47%</h1>
+                <p>Anomalies in Rating</p>
+                <div className="rt1">
+                <div className="rt-cont" style={{ color: isIncrease ? "green" : "red" }}>
+                {isIncrease ? <FaArrowUp /> : <FaArrowDown />}{Math.abs(percentageChange).toFixed(2)}%</div>
+                  <p>Since last year</p>
+                </div>
+              </div>
           </div>
           <div className="rating-area">
           <h2 className="ch-topic">Ratings and Anomalies Trend</h2>
@@ -106,7 +136,16 @@ const Dashboard = () => {
         </div>
 
         <div className="dash2">
-          <div className="rating-sum"></div>
+          <div className="rating-sum">
+            <div className="sum-drop">
+              <div className="category"></div>
+              <div className="product-type"></div>
+            </div>
+
+            <div className="rating-anlyze"></div>
+
+            <div className="show-summery"></div>
+          </div>
           <div className="rating-map"></div>
         </div>
 
