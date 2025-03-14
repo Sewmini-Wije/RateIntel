@@ -83,7 +83,7 @@
     color: #fff;
   }
 
-  .nav-link:hover .nav-icon {
+  .nav-link:hover .nav-icon, .nav-link.active .nav-icon {
     color: orange;
   }
 

@@ -1,8 +1,67 @@
-import React from "react";
-import { VictoryBar, VictoryChart, VictoryAxis, VictoryTheme, VictoryArea, VictoryStack } from "victory";
+import React, { useState } from "react";
+import { VictoryBar, VictoryChart, VictoryAxis, VictoryTheme, VictoryArea, VictoryStack, VictoryLine } from "victory";
 import { ComposableMap, Geographies, Geography } from "react-simple-maps";
-import { FaArrowUp, FaArrowDown } from "react-icons/fa"
-import "../styles/Dashboard.css"; // Import the custom CSS file
+import { scaleLinear } from "d3-scale";
+import { FaArrowUp, FaArrowDown, FaStar, FaStarHalfAlt, FaRegStar, FaChevronDown, FaChevronUp } from "react-icons/fa"
+import "../styles/Dashboard.css";
+
+
+const feedbacks = [
+    { rating: 4.5, text: "Great service and fast response!", author: "John Peterson" },
+    { rating: 5, text: "Excellent experience, highly recommended!", author: "John Peterson" },
+    { rating: 3.5, text: "Good but can be improved in some areas.", author: "John Peterson" },
+    { rating: 4, text: "Very helpful support team!", author: "John Peterson" },
+    { rating: 2.5, text: "Needs improvement in customer service.", author: "John Peterson" },
+    { rating: 5, text: "Perfect! Couldn't ask for better service.", author: "John Peterson" },
+];
+
+const avgRating = (feedbacks.reduce((sum, f) => sum + f.rating, 0) / feedbacks.length).toFixed(1);
+const totalRatingCount = "62,250";
+
+const StarRating = ({ rating }) => {
+    let stars = [];
+    let roundedRating = Math.floor(rating);
+    let hasHalfStar = rating - roundedRating >= 0.5;
+
+    for (let i = 0; i < 5; i++) {
+        if (i < roundedRating) {
+            stars.push(<FaStar key={i} color="gold" />);
+        } else if (hasHalfStar && i === roundedRating) {
+            stars.push(<FaStarHalfAlt key={i} color="gold" />);
+        } else {
+            stars.push(<FaRegStar key={i} color="gray" />);
+        }
+    }
+
+    return <div>{stars}</div>;
+};
+
+const ratingDistribution = [
+  { rating: 1, percentage: 5 },  
+  { rating: 2, percentage: 10 }, 
+  { rating: 3, percentage: 20 }, 
+  { rating: 4, percentage: 30 }, 
+  { rating: 5, percentage: 35 }, 
+];
+
+//for the map
+const countryRatings = {
+  USA: 5000,
+  Canada: 3000,
+  UK: 4500,
+  Germany: 2000,
+  France: 3500,
+  India: 6000,
+  China: 7000,
+  Brazil: 4000,
+};
+
+const minRating = Math.min(...Object.values(countryRatings));
+const maxRating = Math.max(...Object.values(countryRatings));
+
+const colorScale = scaleLinear()
+  .domain([minRating, maxRating])
+  .range(["#f0f0f0", "#ff8404"]);
 
 const Dashboard = () => {
   const monthlyRatingsData = [
@@ -37,6 +96,7 @@ const Dashboard = () => {
   ];
 
   const geoUrl = "https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json";
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
     <div className="dashboard-container">
@@ -138,15 +198,87 @@ const Dashboard = () => {
         <div className="dash2">
           <div className="rating-sum">
             <div className="sum-drop">
-              <div className="category"></div>
-              <div className="product-type"></div>
+              <div className="category">
+                <select>
+                  <option value="">Category</option>
+                  <option value="">Electronics</option>
+                  <option value="">Fashion</option>
+                  <option value="">Sports</option>
+                  <option value="">Homeware</option>
+                </select>
+              </div>
+              <div className="product-type">
+              <select>
+                  <option value="">Product Type</option>
+                  <option value="">Phone/Tablet</option>
+                  <option value="">Laptop/PC</option>
+                  <option value="">Homeware</option>
+                  <option value="">Kitchenware</option>
+                </select>
+              </div>
             </div>
+            <div className="rating-anlyze">
+              <div className="rating">
+                      <h1>{avgRating}</h1>
+                      <div className="tp">
+                        <div className="start">  <StarRating rating={avgRating} /> </div>
+                        <p>Based on {totalRatingCount} Ratings</p>
+                      </div>
+                </div>
+                <div className="bar-rep">
+                  <div className="full-bar"></div>
+                  {ratingDistribution.map((rate) => (
+                    <div key={rate.rating} className="rating-bar-wrapper">
+                      <div className="rating-label">
+                        <p className="star-rate">{rate.rating}★</p>
+                        <p className="star-percentage">{rate.percentage}%</p>
+                      </div>
 
-            <div className="rating-anlyze"></div>
-
-            <div className="show-summery"></div>
+                      <div className="rating-bar-overlay">
+                        <div
+                          className="rating-bar-fill"
+                          style={{ width: `${rate.percentage}%` }}
+                        ></div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+            </div>
+            <div className="show-summery">
+            <button onClick={() => setIsOpen(!isOpen)}>
+              Show Summary {isOpen ? <FaChevronUp className="arw-btn" /> : <FaChevronDown className="arw-btn" />}
+            </button>  
+            {isOpen && (
+            <div className="txt-msg">
+              <p>This is the summary message.</p>
+            </div>
+          )}          
+            </div>
           </div>
-          <div className="rating-map"></div>
+
+
+          <div className="rating-map">
+            <h2>Ratings by Country</h2>
+            <ComposableMap>
+            <Geographies geography={geoUrl}>
+              {({ geographies }) =>
+                geographies.map((geo) => {
+                  const countryName = geo.properties.NAME;
+                  const ratingCount = countryRatings[countryName] || 0;
+                  return (
+                    <Geography
+                      key={geo.rsmKey}
+                      geography={geo}
+                      fill={ratingCount ? colorScale(ratingCount) : "#E0E0E0"} // Default gray if no data
+                      stroke="#000"
+                    />
+                  );
+                })
+              }
+            </Geographies>
+          </ComposableMap>
+          </div>
+
         </div>
 
 
