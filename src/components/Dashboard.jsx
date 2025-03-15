@@ -7,41 +7,41 @@ import "../styles/Dashboard.css";
 
 
 const feedbacks = [
-    { rating: 4.5, text: "Great service and fast response!", author: "John Peterson" },
-    { rating: 5, text: "Excellent experience, highly recommended!", author: "John Peterson" },
-    { rating: 3.5, text: "Good but can be improved in some areas.", author: "John Peterson" },
-    { rating: 4, text: "Very helpful support team!", author: "John Peterson" },
-    { rating: 2.5, text: "Needs improvement in customer service.", author: "John Peterson" },
-    { rating: 5, text: "Perfect! Couldn't ask for better service.", author: "John Peterson" },
+  { rating: 4.5, text: "Great service and fast response!", author: "John Peterson" },
+  { rating: 5, text: "Excellent experience, highly recommended!", author: "John Peterson" },
+  { rating: 3.5, text: "Good but can be improved in some areas.", author: "John Peterson" },
+  { rating: 4, text: "Very helpful support team!", author: "John Peterson" },
+  { rating: 2.5, text: "Needs improvement in customer service.", author: "John Peterson" },
+  { rating: 5, text: "Perfect! Couldn't ask for better service.", author: "John Peterson" },
 ];
 
 const avgRating = (feedbacks.reduce((sum, f) => sum + f.rating, 0) / feedbacks.length).toFixed(1);
 const totalRatingCount = "62,250";
 
 const StarRating = ({ rating }) => {
-    let stars = [];
-    let roundedRating = Math.floor(rating);
-    let hasHalfStar = rating - roundedRating >= 0.5;
+  let stars = [];
+  let roundedRating = Math.floor(rating);
+  let hasHalfStar = rating - roundedRating >= 0.5;
 
-    for (let i = 0; i < 5; i++) {
-        if (i < roundedRating) {
-            stars.push(<FaStar key={i} color="gold" />);
-        } else if (hasHalfStar && i === roundedRating) {
-            stars.push(<FaStarHalfAlt key={i} color="gold" />);
-        } else {
-            stars.push(<FaRegStar key={i} color="gray" />);
-        }
+  for (let i = 0; i < 5; i++) {
+    if (i < roundedRating) {
+      stars.push(<FaStar key={i} color="gold" />);
+    } else if (hasHalfStar && i === roundedRating) {
+      stars.push(<FaStarHalfAlt key={i} color="gold" />);
+    } else {
+      stars.push(<FaRegStar key={i} color="gray" />);
     }
+  }
 
-    return <div>{stars}</div>;
+  return <div>{stars}</div>;
 };
 
 const ratingDistribution = [
-  { rating: 1, percentage: 5 },  
-  { rating: 2, percentage: 10 }, 
-  { rating: 3, percentage: 20 }, 
-  { rating: 4, percentage: 30 }, 
-  { rating: 5, percentage: 35 }, 
+  { rating: 1, percentage: 5 },
+  { rating: 2, percentage: 10 },
+  { rating: 3, percentage: 20 },
+  { rating: 4, percentage: 30 },
+  { rating: 5, percentage: 35 },
 ];
 
 //for the map
@@ -100,65 +100,65 @@ const Dashboard = () => {
 
   return (
     <div className="dashboard-container">
-        <div className="dash1">
-          <div className="rating-bar">
-              {/* Bar Chart */}
-            <div className="bar-container">
-              <h2 className="ch-topic">Ratings Patterns and Anomalies</h2>
-              <div className="rate-def">
-                <div className="def">
-                  <div className="color1"></div>
-                  <p>Consistant Ratings</p>
-                </div>
-                <div className="def">
-                  <div className="color2"></div>
-                  <p>Moderate Ratings</p>
-                </div>
-                <div className="def">
-                  <div className="color3"></div>
-                  <p>Protential Outliers</p>
-                </div>
+      <div className="dash1">
+        <div className="rating-bar">
+          {/* Bar Chart */}
+          <div className="bar-container">
+            <h2 className="ch-topic">Ratings Patterns and Anomalies</h2>
+            <div className="rate-def">
+              <div className="def">
+                <div className="color1"></div>
+                <p>Consistant Ratings</p>
               </div>
-              <div className="bar-chart">
-                <VictoryChart width={1200} height={500} domainPadding={50} theme={VictoryTheme.material}>
-                  <VictoryAxis tickValues={["Jan", "Feb", "Mar", "Apr", "May", "Jun"]} label="Month" />
-                  <VictoryAxis dependentAxis tickFormat={(tick) => `${tick}K`} label="Ratings Count (K)" />
-                  <VictoryStack colorScale={["#ff8404", "#ffb404", "#ffe0b0"]}>
-                    <VictoryBar data={monthlyRatingsData} x="month" y="consistent" />
-                    <VictoryBar data={monthlyRatingsData} x="month" y="moderate" />
-                    <VictoryBar data={monthlyRatingsData} x="month" y="outliers" />
-                  </VictoryStack>
-                </VictoryChart>
+              <div className="def">
+                <div className="color2"></div>
+                <p>Moderate Ratings</p>
+              </div>
+              <div className="def">
+                <div className="color3"></div>
+                <p>Protential Outliers</p>
               </div>
             </div>
+            <div className="bar-chart">
+              <VictoryChart width={1200} height={500} domainPadding={50} theme={VictoryTheme.material}>
+                <VictoryAxis tickValues={["Jan", "Feb", "Mar", "Apr", "May", "Jun"]} label="Month" />
+                <VictoryAxis dependentAxis tickFormat={(tick) => `${tick}K`} label="Ratings Count (K)" />
+                <VictoryStack colorScale={["#ff8404", "#ffb404", "#ffe0b0"]}>
+                  <VictoryBar data={monthlyRatingsData} x="month" y="consistent" />
+                  <VictoryBar data={monthlyRatingsData} x="month" y="moderate" />
+                  <VictoryBar data={monthlyRatingsData} x="month" y="outliers" />
+                </VictoryStack>
+              </VictoryChart>
+            </div>
           </div>
-          <div className="rating-percent">
-              <div className="positive-rating">
-                <h1>{currentMonthTotal}%</h1>
-                <p>Positive Rating</p>
-                <div className="rt1">
-                  <div className="rt-cont" style={{ color: isIncrease ? "green" : "red" }}>
+        </div>
+        <div className="rating-percent">
+          <div className="positive-rating">
+            <h1>{currentMonthTotal}%</h1>
+            <p>Positive Rating</p>
+            <div className="rt1">
+              <div className="rt-cont" style={{ color: isIncrease ? "green" : "red" }}>
                 {isIncrease ? <FaArrowUp /> : <FaArrowDown />}{Math.abs(percentageChange1).toFixed(2)}%</div>
-                  <p>Since last months</p>
-                </div>
-              </div>
-              <div className="anomalies-rating">
-                <h1>47%</h1>
-                <p>Anomalies in Rating</p>
-                <div className="rt1">
-                <div className="rt-cont" style={{ color: isIncrease ? "green" : "red" }}>
-                {isIncrease ? <FaArrowUp /> : <FaArrowDown />}{Math.abs(percentageChange).toFixed(2)}%</div>
-                  <p>Since last year</p>
-                </div>
-              </div>
+              <p>Since last months</p>
+            </div>
           </div>
-          <div className="rating-area">
+          <div className="anomalies-rating">
+            <h1>47%</h1>
+            <p>Anomalies in Rating</p>
+            <div className="rt1">
+              <div className="rt-cont" style={{ color: isIncrease ? "green" : "red" }}>
+                {isIncrease ? <FaArrowUp /> : <FaArrowDown />}{Math.abs(percentageChange).toFixed(2)}%</div>
+              <p>Since last year</p>
+            </div>
+          </div>
+        </div>
+        <div className="rating-area">
           <h2 className="ch-topic">Ratings and Anomalies Trend</h2>
           <div className="area-def">
             <div className="area-chart">
               <VictoryChart width={800} height={300} theme={VictoryTheme.material} className="victory-chart">
-              <svg style={{ position: "absolute", width: 0, height: 0 }}>
-              <defs>
+                <svg style={{ position: "absolute", width: 0, height: 0 }}>
+                  <defs>
                     <linearGradient id="ratingsGradient1" x1="0" y1="0" x2="0" y2="1">
                       <stop offset="0%" stopColor="#000" />
                       <stop offset="50%" stopColor="#848484" />
@@ -173,8 +173,8 @@ const Dashboard = () => {
                     </linearGradient>
                   </defs>
                 </svg>
-                
-                <VictoryAxis tickValues={["Jan", "Feb", "Mar", "Apr", "May", "Jun"]} /> 
+
+                <VictoryAxis tickValues={["Jan", "Feb", "Mar", "Apr", "May", "Jun"]} />
                 <VictoryAxis dependentAxis />
                 <VictoryArea data={areaData} x="month" y="ratings" style={{ data: { fill: "url(#ratingsGradient1)", opacity: 0.4 } }} />
                 <VictoryArea data={areaData} x="month" y="anomalies" style={{ data: { fill: "url(#ratingsGradient2)", opacity: 0.7 } }} />
@@ -191,75 +191,75 @@ const Dashboard = () => {
               </div>
             </div>
           </div>
-         
+
+        </div>
+      </div>
+
+      <div className="dash2">
+        <div className="rating-sum">
+          <div className="sum-drop">
+            <div>
+              <select className="category">
+                <option value="">Category</option>
+                <option value="">Electronics</option>
+                <option value="">Fashion</option>
+                <option value="">Sports</option>
+                <option value="">Homeware</option>
+              </select>
+            </div>
+            <div>
+              <select className="product-type">
+                <option value="">Product Type</option>
+                <option value="">Phone/Tablet</option>
+                <option value="">Laptop/PC</option>
+                <option value="">Homeware</option>
+                <option value="">Kitchenware</option>
+              </select>
+            </div>
+          </div>
+          <div className="rating-anlyze">
+            <div className="rating">
+              <h1>{avgRating}</h1>
+              <div className="tp">
+                <div className="start">  <StarRating rating={avgRating} /> </div>
+                <p>Based on {totalRatingCount} Ratings</p>
+              </div>
+            </div>
+            <div className="bar-rep">
+              <div className="full-bar"></div>
+              {ratingDistribution.map((rate) => (
+                <div key={rate.rating} className="rating-bar-wrapper">
+                  <div className="rating-label">
+                    <p className="star-rate">{rate.rating}★</p>
+                    <p className="star-percentage">{rate.percentage}%</p>
+                  </div>
+
+                  <div className="rating-bar-overlay">
+                    <div
+                      className="rating-bar-fill"
+                      style={{ width: `${rate.percentage}%` }}
+                    ></div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className="show-summery">
+            <button onClick={() => setIsOpen(!isOpen)}>
+              Show Summary {isOpen ? <FaChevronUp className="arw-btn" /> : <FaChevronDown className="arw-btn" />}
+            </button>
+            {isOpen && (
+              <div className="txt-msg">
+                <p>This is the summary message.</p>
+              </div>
+            )}
           </div>
         </div>
 
-        <div className="dash2">
-          <div className="rating-sum">
-            <div className="sum-drop">
-              <div className="category">
-                <select>
-                  <option value="">Category</option>
-                  <option value="">Electronics</option>
-                  <option value="">Fashion</option>
-                  <option value="">Sports</option>
-                  <option value="">Homeware</option>
-                </select>
-              </div>
-              <div className="product-type">
-              <select>
-                  <option value="">Product Type</option>
-                  <option value="">Phone/Tablet</option>
-                  <option value="">Laptop/PC</option>
-                  <option value="">Homeware</option>
-                  <option value="">Kitchenware</option>
-                </select>
-              </div>
-            </div>
-            <div className="rating-anlyze">
-              <div className="rating">
-                      <h1>{avgRating}</h1>
-                      <div className="tp">
-                        <div className="start">  <StarRating rating={avgRating} /> </div>
-                        <p>Based on {totalRatingCount} Ratings</p>
-                      </div>
-                </div>
-                <div className="bar-rep">
-                  <div className="full-bar"></div>
-                  {ratingDistribution.map((rate) => (
-                    <div key={rate.rating} className="rating-bar-wrapper">
-                      <div className="rating-label">
-                        <p className="star-rate">{rate.rating}★</p>
-                        <p className="star-percentage">{rate.percentage}%</p>
-                      </div>
 
-                      <div className="rating-bar-overlay">
-                        <div
-                          className="rating-bar-fill"
-                          style={{ width: `${rate.percentage}%` }}
-                        ></div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-            </div>
-            <div className="show-summery">
-            <button onClick={() => setIsOpen(!isOpen)}>
-              Show Summary {isOpen ? <FaChevronUp className="arw-btn" /> : <FaChevronDown className="arw-btn" />}
-            </button>  
-            {isOpen && (
-            <div className="txt-msg">
-              <p>This is the summary message.</p>
-            </div>
-          )}          
-            </div>
-          </div>
-
-
-          <div className="rating-map">
-            <h2>Ratings by Country</h2>
-            <ComposableMap>
+        <div className="rating-map">
+          <h2>Ratings by Country</h2>
+          <ComposableMap>
             <Geographies geography={geoUrl}>
               {({ geographies }) =>
                 geographies.map((geo) => {
@@ -277,9 +277,9 @@ const Dashboard = () => {
               }
             </Geographies>
           </ComposableMap>
-          </div>
-
         </div>
+
+      </div>
 
 
 

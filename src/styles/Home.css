@@ -3,7 +3,10 @@
     background-color: #022f46;
 }
 
-.section1, .section2, .section3, .section4 {
+.section1,
+.section2,
+.section3,
+.section4 {
     width: 100%;
     height: 100vh;
 }
@@ -40,9 +43,11 @@
     margin-top: 20vh;
     padding-left: 50px;
 }
+
 .logo h1 {
     color: #fff;
 }
+
 .logo .h1-section1 {
     color: orange
 }
@@ -66,10 +71,12 @@
     color: #fff;
     font-size: 4.0em;
 }
+
 .section1-body p {
     width: 37%;
     margin: 0 100px;
 }
+
 .section1-body button {
     height: 80px;
     width: 200px;
@@ -83,7 +90,8 @@
     padding-top: 40px;
 }
 
-.text-container, .text-overlay {
+.text-container,
+.text-overlay {
     font-family: 'Times New Roman', Times, serif;
     font-size: 80px;
 }
@@ -103,7 +111,7 @@
     color: #fff;
 }
 
-.img-overlay{
+.img-overlay {
     position: absolute;
     top: 70%;
     left: 50%;
@@ -128,33 +136,65 @@
     align-items: center;
     border-radius: 10px;
 }
+
 .box img {
     height: 50px;
     width: 70px;
     box-shadow: none;
     margin: 0;
 }
+
 .box h5 {
     font-size: 20px;
     font-weight: bold;
     margin: 0;
 }
+
 .box p {
     font-size: 12px;
     font-weight: 10;
 }
+
 .box-spc {
     display: flex;
     flex-direction: row;
 }
 
-.top-left { top: 100px; left: -120px; text-align: left; }
-.top-right { top: 100px; right: -120px; text-align: right; }
-.bottom-left { bottom: 100px; left: -120px; text-align: left; }
-.bottom-right { bottom: 100px; right: -120px; text-align: right; }
+.top-left {
+    top: 100px;
+    left: -120px;
+    text-align: left;
+}
 
-.below-left { bottom: -80px; left: 200px; text-align: left; }
-.below-right { bottom: -80px; right: 200px; text-align: right; }
+.top-right {
+    top: 100px;
+    right: -120px;
+    text-align: right;
+}
+
+.bottom-left {
+    bottom: 100px;
+    left: -120px;
+    text-align: left;
+}
+
+.bottom-right {
+    bottom: 100px;
+    right: -120px;
+    text-align: right;
+}
+
+.below-left {
+    bottom: -80px;
+    left: 200px;
+    text-align: left;
+}
+
+.below-right {
+    bottom: -80px;
+    right: 200px;
+    text-align: right;
+}
 
 
 .section3 {
@@ -202,7 +242,7 @@
     transition: transform 0.3s ease-in-out;
 }
 
-.feedback-box img{
+.feedback-box img {
     height: 30px;
     width: 30px;
 }

@@ -2,12 +2,13 @@ import { useState } from "react";
 import { FaSearch } from "react-icons/fa";
 import { FaChevronLeft, FaChevronRight, FaStar } from "react-icons/fa";
 import "../styles/Reviews.css";
+import { useNavigate } from "react-router-dom";
 
 const Reviews = () => {
     // Define state variables for pagination
     const [pageNo, setPageNo] = useState(1);
     const [pageSize, setPageSize] = useState(5);
-    const [totalNos, setTotalNos] = useState(50); // Assuming 50 total entries
+    const [totalNos, setTotalNos] = useState(50);
     const [startedNo, setStartedNo] = useState(1);
     const [endNo, setEndNo] = useState(pageSize);
 
@@ -25,31 +26,34 @@ const Reviews = () => {
         { id: 10, name: "Olivia Wilson", product: "Sofa Set", productType: "Homeware", category: "Homeware", anomaly: "No", rate: 4, date: "2025-03-19" }
     ];
 
+    const navigate = new useNavigate();
+
+
     return (
         <div className="review-container">
             <div className="rw-header">
                 <div className="rw-search">
-                        <input type="text" placeholder="Search" />
-                        <FaSearch className="search-icon" />
-                    </div>
-                        <select className="category">
-                        <option value="">Category</option>
-                        <option value="">Electronics</option>
-                        <option value="">Fashion</option>
-                        <option value="">Sports</option>
-                        <option value="">Homeware</option>
-                        </select>
-                    <select className="product-type">
-                        <option value="">Product Type</option>
-                        <option value="">Phone/Tablet</option>
-                        <option value="">Laptop/PC</option>
-                        <option value="">Homeware</option>
-                        <option value="">Kitchenware</option>
-                        </select>
-                    <button className="gen-report">Generate Report</button>
+                    <input type="text" placeholder="Search" />
+                    <FaSearch className="search-icon" />
                 </div>
+                <select className="category">
+                    <option value="">Category</option>
+                    <option value="">Electronics</option>
+                    <option value="">Fashion</option>
+                    <option value="">Sports</option>
+                    <option value="">Homeware</option>
+                </select>
+                <select className="product-type">
+                    <option value="">Product Type</option>
+                    <option value="">Phone/Tablet</option>
+                    <option value="">Laptop/PC</option>
+                    <option value="">Homeware</option>
+                    <option value="">Kitchenware</option>
+                </select>
+                <button className="gen-report" onClick={() => navigate("/report")}>Generate Report</button>
+            </div>
             <table className="review-table">
-            <thead>
+                <thead>
                     <tr className="rw-body1">
                         <th>#</th>
                         <th>NAME</th>
@@ -74,12 +78,12 @@ const Reviews = () => {
                                     display: "flex",
                                     justifyContent: "center",
                                     alignItems: "center",
-                                    width: "30px", 
-                                    height: "15px", 
+                                    width: "30px",
+                                    height: "15px",
                                     backgroundColor: review.anomaly === "Yes" ? "rgba(0, 128, 0, 0.2)" : "rgba(255, 0, 0, 0.2)", // Transparent fill
-                                    color: review.anomaly === "Yes" ? "darkgreen" : "darkred", 
+                                    color: review.anomaly === "Yes" ? "darkgreen" : "darkred",
                                     borderRadius: "50px",
-                                    fontSize:"0.7em",
+                                    fontSize: "0.7em",
                                     fontWeight: "bold",
                                 }}
                             >

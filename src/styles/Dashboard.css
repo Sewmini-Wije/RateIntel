@@ -18,7 +18,8 @@
     width: 30%;
 }
 
-.dash1, .dash2 {
+.dash1,
+.dash2 {
     height: 100%;
     margin: 0;
     display: flex;
@@ -27,11 +28,16 @@
     justify-content: center;
 }
 
-.rating-bar, .positive-rating, .anomalies-rating, .rating-area, .rating-sum, .rating-map { 
+.rating-bar,
+.positive-rating,
+.anomalies-rating,
+.rating-area,
+.rating-sum,
+.rating-map {
     border-radius: 15px;
     margin: 5px 0 5px 5px;
     background-color: #d0dcec;
-    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3); 
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
 }
 
 .rating-bar {
@@ -50,7 +56,8 @@
     gap: 10px;
 }
 
-.positive-rating, .anomalies-rating {
+.positive-rating,
+.anomalies-rating {
     width: 50%;
     height: 100%;
     display: flex;
@@ -59,14 +66,16 @@
     justify-content: center;
 }
 
-.positive-rating h1, .anomalies-rating h1 {
+.positive-rating h1,
+.anomalies-rating h1 {
     margin: 0 20px;
     padding: 0;
     font-weight: 400;
     font-size: 2.0em;
 }
 
-.positive-rating p, .anomalies-rating p {
+.positive-rating p,
+.anomalies-rating p {
     margin: 0 20px;
     padding: 0;
 }
@@ -115,7 +124,8 @@
     padding: 10px;
 }
 
-.category select, .product-type select {
+.category,
+.product-type {
     border: 1px sold #022f46;
     color: #fff;
     background-color: #022f46;
@@ -124,14 +134,18 @@
     border-radius: 5px;
 }
 
-.category select option, .product-type select option {
+.category option,
+.product-type option {
     background-color: #fff;
     color: #022f46;
+    border: none;
 }
 
-.category select option:checked, .product-type select option:checked {
+.category option:checked,
+.product-type option:checked {
     color: #fff;
     background-color: #022f46;
+    border: none;
 }
 
 .rating-anlyze {
@@ -149,7 +163,7 @@
     margin-bottom: 0;
 }
 
-.rating h1  {
+.rating h1 {
     font-size: 50px;
 }
 
@@ -170,7 +184,7 @@
     color: #022f46;
 }
 
-  .bar-rep {
+.bar-rep {
     position: relative;
     width: 80%;
     height: 100%;
@@ -178,28 +192,29 @@
     margin: 0 auto;
     display: flex;
     flex-direction: column;
-  }
+}
 
-  .rating-bar-wrapper {
+.rating-bar-wrapper {
     width: 100%;
     height: 40%;
-  }
-  
-  .rating-label {
+}
+
+.rating-label {
     display: flex;
     justify-content: space-between;
     font-size: 0.8em;
     font-weight: bold;
     margin: 0;
     padding: 0;
-  }
-  
-  .star-rate,  .star-percentage {
+}
+
+.star-rate,
+.star-percentage {
     margin-top: 0;
-    color: #022f46; 
-  }
-  
-  .rating-bar-overlay {
+    color: #022f46;
+}
+
+.rating-bar-overlay {
     width: 100%;
     height: 5px;
     padding: 0;
@@ -207,17 +222,17 @@
     opacity: 0.5;
     border-radius: 4px;
     position: relative;
-  }
-  
-  .rating-bar-fill {
+}
+
+.rating-bar-fill {
     padding: 0;
     height: 5px;
-    background-color: #ff8404; 
+    background-color: #ff8404;
     border-radius: 4px;
     position: absolute;
     left: 0;
-  }
-  
+}
+
 
 .show-summery {
     width: 80%;
@@ -298,18 +313,28 @@
     width: 150px;
 }
 
-.color1, .color2, .color3 {
+.color1,
+.color2,
+.color3 {
     height: 10px;
     width: 10px;
     border-radius: 50%;
     font-size: 0.8em;
 }
 
-.color1 { background-color: #ff8404; }
-.color2 { background-color: #ffb404; }
-.color3 { background-color: #ffe0b0; }
+.color1 {
+    background-color: #ff8404;
+}
 
-.bar-chart{
+.color2 {
+    background-color: #ffb404;
+}
+
+.color3 {
+    background-color: #ffe0b0;
+}
+
+.bar-chart {
     width: 100%;
     height: 220px;
     padding: 0;
@@ -347,14 +372,14 @@
     height: 15px;
     width: 15px;
     background: radial-gradient(circle, #000 0%,
-                                         #848484 50%, 
-                                         rgba(0, 0, 0, 0) 100%);
+            #848484 50%,
+            rgba(0, 0, 0, 0) 100%);
 }
 
 .color5 {
     height: 15px;
     width: 15px;
     background: radial-gradient(circle, #ff8404 0%,
-                                         #ffb404 50%, 
-                                         #ffe0b0 100%);
+            #ffb404 50%,
+            #ffe0b0 100%);
 }

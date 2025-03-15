@@ -12,7 +12,7 @@ const Login = () => {
 
     const handleLogin = () => {
         if (!password) {
-            setShowError(true); 
+            setShowError(true);
         } else {
             setShowError(false);
         }
@@ -42,7 +42,7 @@ const Login = () => {
                         <input type="password" placeholder="Enter your password" />
                     </div>
                     <div className="lg-content">
-                        <button className="login-btn" onClick={ () => navigate("/dashboard") } >Login now</button>
+                        <button className="login-btn" onClick={() => navigate("/dashboard")} >Login now</button>
                     </div>
                 </div>
             </div>

@@ -4,6 +4,7 @@ import Login from "./components/Login";
 import SideNav from "./components/Sidenav";
 import Dashboard from "./components/Dashboard";
 import Reviews from "./components/Reviews";
+import Report from "./components/Report";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <Route path="/dashboard" element = { <Dashboard />} />
           <Route path="/reviews" element = { <Reviews /> } />
         </Route>
+        <Route path="/report" element = { <Report /> } />
       </Routes>
     </div>
   );

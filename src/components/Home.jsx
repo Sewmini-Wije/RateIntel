@@ -89,7 +89,7 @@ const Home = () => {
                     <div className="logo">
                         <h1>Rateintel</h1><h1 className="h1-section1">.</h1>
                     </div>
-                    <button className="login" onClick={ () => navigate("/login")} >Login</button>
+                    <button className="login" onClick={() => navigate("/login")} >Login</button>
                 </div>
                 <div className="section1-body">
                     <p>Turning Feedback into Opportunities for Growth.</p>
@@ -97,7 +97,7 @@ const Home = () => {
                 </div>
             </section>
 
-            <section className="section2">
+            <section id="aboutUs" className="section2">
                 <div className="text-container">
                     Built with Trust
                     <div className="text-overlay">
@@ -166,7 +166,7 @@ const Home = () => {
                 <footer>
                     <div className="about">
                         <p>FAQs</p>
-                        <p>About RateIntel</p>
+                        <p onClick={() => document.getElementById("aboutUs").scrollIntoView({ behavior: "smooth" })} style={{ cursor: "pointer" }} >About RateIntel</p>
                     </div>
                     <div className="contact">
                         <h2>Contact</h2>
@@ -181,7 +181,7 @@ const Home = () => {
                             <FaTiktok size={25} />
                         </div>
                     </div>
-                        <div className="info">
+                    <div className="info">
                         <div className="logo">
                             <h1>Rateintel</h1><h1 className="h1-section1">.</h1>
                         </div>

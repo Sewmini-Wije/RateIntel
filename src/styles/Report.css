@@ -1,0 +1,247 @@
+.report-container {
+    height: 100vh;
+    width: 100vw;
+    background-color: #78bcdc;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.rep1 {
+    width: 95%;
+    height: 15%;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 20px;
+    text-align: center;
+    font-size: 1.2em;
+    color: #022f46;
+}
+
+.rep2 {
+    width: 95%;
+    height: 45%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.rep-bar,
+.rep-list {
+    width: 50%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 30px;
+}
+
+.rep3 {
+    width: 95%;
+    height: 30%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30;
+}
+
+.rep-area {
+    width: 50%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 30px;
+}
+
+.rep-map {
+    width: 30%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 30px;
+}
+
+.rep-btn {
+    height: 100%;
+    width: 15%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30;
+}
+
+.r-bar-container {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.r-bar-container .r-ch-topic {
+    height: 5%;
+}
+
+.r-rate-def {
+    height: 5%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    margin: 0;
+    padding-bottom: 0;
+}
+
+.r-def {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 150px;
+}
+
+.color1,
+.color2,
+.color3 {
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+    font-size: 0.8em;
+}
+
+.color1 {
+    background-color: #ff8404;
+}
+
+.color2 {
+    background-color: #ffb404;
+}
+
+.color3 {
+    background-color: #ffe0b0;
+}
+
+.r-bar-chart {
+    width: 100%;
+    height: 220px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.rep-table {
+    width: 93%;
+    height: 100%;
+    margin: 0 30px;
+    border-collapse: collapse;
+    font-size: 0.8em;
+    align-items: center;
+    overflow: hidden;
+}
+
+
+.r-review-table tr td {
+    margin: 5px 10px;
+    padding: 5px 15px;
+    height: 20px;
+    align-items: center;
+}
+
+.r-rw-body1 {
+    background-color: #d0dcec;
+    width: 100%;
+    height: 8%;
+    margin: 10px 0;
+}
+
+.r-rw-body2 {
+    background-color: #fff;
+}
+
+.r-rw-footer {
+    height: 5%;
+    width: 90%;
+    font-size: 0.8em;
+    background-color: #d0dcec;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0;
+    padding-top: 0;
+}
+
+.r-rating-area {
+    width: 97%;
+    height: 30%;
+    display: flex;
+    flex-direction: column;
+}
+
+.r-area-def {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.r-area-chart {
+    height: 160px;
+    width: 80%;
+}
+
+.r-rating-map {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.r-rating-map h2 {
+    width: 90%;
+    text-align: right;
+    font-size: 0.8em;
+    font-weight: 700;
+    color: #022f46;
+}
+
+.download,
+.return {
+    height: 20%;
+    width: 90%;
+    border: 3px solid #022f46;
+    background-color: #022f46;
+    border-radius: 10px;
+    color: #fff;
+    font-size: 1.0em;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.download:hover,
+.return:hover {
+    cursor: pointer;
+    background: transparent;
+    color: #022f46;
+    border: 3px solid #022f46;
+}
+
+.rep-btn .logo {
+    display: flex;
+    flex-direction: row;
+    font-size: 0.9em;
+    bottom: 10px;
+}
+
+.logo h1 {
+    color: #fff;
+}
+
+.logo .h1-section1 {
+    color: orange
+}
