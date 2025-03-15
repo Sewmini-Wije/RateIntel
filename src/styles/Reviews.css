@@ -1,0 +1,145 @@
+.review-container {
+    width: 82vw;
+    height: 100vh;
+    margin-left: 275px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.rw-header {
+    width: 90%; 
+    height: 8%;
+    background-color: #d0dcec;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    box-sizing: border-box;
+    margin-top: 10px;
+    border: 1px solid #022f46;
+    border-bottom: none!important;
+}
+
+.rw-search {
+    position: relative;
+    width: 250px; 
+}
+
+.rw-search input {
+    width: 100%;
+    padding: 5px 35px 5px 10px; 
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.search-icon {
+    position: absolute;
+    right: 2px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: gray;
+    pointer-events: none; 
+}
+
+.category, .product-type, .gen-report {
+    background-color: #022f46;
+    color: #fff;
+    padding: 2px 5px;;
+    border: 2px solid #022f46;
+    border-radius: 5px;
+}
+
+.category select, .product-type select {
+    border: 1px sold #022f46;
+    color: #fff;
+    background-color: #022f46;
+    font-size: 10px;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.category select option, .product-type select option {
+    background-color: #fff;
+    color: #022f46;
+}
+
+.category select option:checked, .product-type select option:checked {
+    color: #fff;
+    background-color: #022f46;
+}
+
+.gen-report:hover {
+    cursor: pointer;
+    border: 2px solid #022f46;
+    background-color: #fff;
+    color: #022f46;
+}
+
+.review-table {
+    width: 90%; 
+    height: 80%;
+    margin: 0 20px;
+    border: 1px solid #022f46;
+    border-top: none!important;
+    border-bottom: none!important;
+    border-collapse: collapse; 
+    font-size: 0.8em; 
+    align-items: center;
+}
+
+.review-table tr td {
+    margin: 5px 10px;
+    padding: 5px 15px;
+    height: 20px;
+    align-items: center;
+}
+
+.rw-body1 {
+    background-color: #d0dcec;
+    width: 100%;
+    height: 8%; 
+    margin: 10px 0;
+}
+
+.rw-footer {
+    height: 5%;
+    width: 90%;
+    font-size: 0.8em;
+    background-color: #d0dcec;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0;
+    padding-top: 0;
+    border: 1px solid #022f46;
+    border-top: none!important;
+}
+
+.rw-page1 {
+    padding-left: 10px;
+    font-weight: 700;
+    color: gray;
+}
+
+.rw-page2 {
+    display: flex;
+    flex-direction: row;
+    align-items: center; 
+    justify-content: space-around;
+    gap: 10px;
+    padding-right: 10px;
+    font-weight: 700;
+    color: gray;
+}
+
+.page-size select {
+    border: none;
+    background: transparent;
+    padding:  0 10px;
+    font-weight: 700;
+    color: gray;
+}

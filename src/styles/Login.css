@@ -76,6 +76,10 @@
     margin-bottom: 5px; 
 }
 
+.form-content input::placeholder {
+    padding: 10px;
+}
+
 .form-content input:focus {
     border: 2px solid #6692a7;
     outline: none;

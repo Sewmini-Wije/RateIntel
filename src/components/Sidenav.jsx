@@ -1,7 +1,10 @@
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { NavLink, Outlet } from "react-router-dom";
 import "../styles/Sidenav.css";
 import { faThLarge, faComments, faUserGroup, faArrowRotateBack } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Dialog, DialogTitle, DialogContent, DialogActions, Button } from "@mui/material";
 import docProfile1 from "../img/Profile.jpg";
 
 const user = {
@@ -10,7 +13,6 @@ const user = {
 };
 
 const Sidenav = () => {
-
     return (
         <div className="layout-container">
             <aside className="side-nav">
@@ -31,7 +33,7 @@ const Sidenav = () => {
                                 <td className="sidenav-name">Dashboard</td>
                             </tr>
                         </NavLink>
-                        <NavLink to="/patient_details" className={({isActive}) => isActive ? "nav-link active" : "nav-link"}>
+                        <NavLink to="/reviews" className={({isActive}) => isActive ? "nav-link active" : "nav-link"}>
                             <tr>
                                 <td className="sidenav-icon">
                                     <FontAwesomeIcon icon={faComments} className="nav-icon" />
